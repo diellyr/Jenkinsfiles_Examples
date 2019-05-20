@@ -36,7 +36,7 @@ pipeline {
             
         }
         changed {
-            echo 'Things were different before...'
+            echo 'some things changed...'
         }
     }
 }
