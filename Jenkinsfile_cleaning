@@ -10,8 +10,8 @@ pipeline {
     post {
         always {
             echo 'One way or another, I have finished'
-            //sh 'rm README.md'
-            deleteDir() /* clean up our workspace */
+            sh 'rm READM.md'
+            //deleteDir() /* clean up our workspace */
         }
         success {
             echo 'I succeeeded!'
