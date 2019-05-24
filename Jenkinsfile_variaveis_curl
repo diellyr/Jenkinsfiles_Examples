@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Example Username/Password') {
+            environment {
+                SERVICE_CREDS_USR = 'diellyr'
+                SERVICE_CREDS_PSW = 'Senhadeteste'
+                SERVICE_CREDS = 'diellyr:Senhadeteste'
+
+            }
+            steps {
+                sh 'echo "Service user is $SERVICE_CREDS_USR"'
+                sh 'echo "Service password is $SERVICE_CREDS_PSW"'
+                sh 'echo "Service password is $SERVICE_CREDS"'
+                sh 'curl -u $SERVICE_CREDS: http://testyou.in/Login.aspx'
+
+            }
+        }
+    }
+}
