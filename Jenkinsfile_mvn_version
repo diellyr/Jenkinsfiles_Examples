@@ -1,0 +1,13 @@
+pipeline{
+        agent any
+        tools{
+                maven 'Tools'
+        }
+        stages{
+                stage("tools"){
+                        steps{
+                                sh 'mvn --version'
+                        }
+                }
+        }
+}
