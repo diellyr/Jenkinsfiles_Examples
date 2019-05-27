@@ -1,0 +1,30 @@
+pipeline{
+    agent any
+    environment{
+        var="Jenkins"
+    }
+    stages{
+        stage("Conditions") {
+                steps{
+                        script{
+                                if (var=="Jenkins"){
+                                        echo "if selecionado"
+                                        sh '''
+                                        touch arquivo1.txt
+                                        echo "Our CI CD tool" > arquivo1.txt
+                                        cat arquivo1.txt
+                                        '''
+                                }
+                                else {
+                                        echo "else selecionado"
+                                        sh '''
+                                        touch arquivo2.txt
+                                        echo "Not CI CD tool" > arquivo2.txt
+                                        cat arquivo2.txt
+                                        '''
+                                }
+                        }
+                }
+        }
+     }
+}
