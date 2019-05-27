@@ -1,0 +1,11 @@
+pipeline{
+        agent any
+        stages{
+                stage("Writefile"){
+                        steps{
+                                writeFile file:'fileDemo.txt', text:"This is a demo for a writefile"
+                                archiveArtifacts '*.txt'
+                        }
+                }
+        }
+}
