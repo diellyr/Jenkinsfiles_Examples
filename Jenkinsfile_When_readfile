@@ -1,0 +1,14 @@
+pipeline{
+        agent any
+        stages{
+                stage("finding_sintax"){
+                                when{
+                                        expression {return readFile ('arquivo.txt').contains('branch')}
+                                }
+
+                                steps{
+                                echo "Yes, sintax found"
+                                }
+                }
+        }
+}
