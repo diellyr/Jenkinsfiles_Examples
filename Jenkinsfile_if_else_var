@@ -1,0 +1,26 @@
+pipeline{
+    agent any
+    environment{
+     var="jenkins"
+    }
+    stages{
+        stage("Conditions") {
+                steps{
+                        script{
+                                if (var=="jenkins"){
+                                       sh '''echo "Conteudo" > jenkins.txt
+                                             var2=$(cat jenkins.txt)
+                                             echo $var2
+                                          '''
+
+
+                                        echo "if selecionado"
+                                }
+                                else {
+                                        echo "else selecionado"
+                                }
+                        }
+                }
+        }
+     }
+}
