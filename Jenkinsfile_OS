@@ -1,0 +1,17 @@
+pipeline{
+        agent any
+        stages{
+                stage("OS"){
+                        steps{
+                                script{
+                                        if(isUnix()){
+                                                sh "ls -lah"
+                                        }
+                                        else{
+                                                bat "dir"
+                                        }
+                                }
+                        }
+                }
+        }
+}
