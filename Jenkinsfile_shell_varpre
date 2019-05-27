@@ -1,0 +1,16 @@
+pipeline{
+        agent any
+        stages{
+                stage("shell commands"){
+                        steps{
+                         sh"""
+                                touch ${JOB_NAME}.${BUILD_NUMBER}.txt
+                                echo "escrevendo no arquivo" > ${JOB_NAME}.${BUILD_NUMBER}.txt
+                                cat ${JOB_NAME}.${BUILD_NUMBER}.txt
+                                ls -lah
+                                pwd
+                         """
+                        }
+                }
+        }
+}
