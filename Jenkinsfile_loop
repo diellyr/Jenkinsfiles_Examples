@@ -1,0 +1,32 @@
+pipeline{
+        agent any
+        stages{
+                stage("Condition"){
+                        steps{
+                                script{
+                                        for(int i=0;i<10;i++){
+                                        println(i)
+                                        }
+                                }
+                        }
+                }
+                stage("Condition2"){
+                        steps{
+                                script{
+                                        for(int i=0;i<100;i++){
+                                        println(i)
+                                        }
+                                }
+                        }
+                }
+                stage("Condition3"){
+                        steps{
+                                script{
+                                        for(int i=0;i<1000;i++){
+                                        println(i)
+                                        }
+                                }
+                        }
+                }
+        }
+}
