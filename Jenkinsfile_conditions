@@ -1,0 +1,40 @@
+pipeline {
+         agent any
+         stages {
+                 stage('Iniciando o Pipeline') {
+                 steps {
+                     echo 'Iniciando o Pipeline'
+                 }
+                 }
+                 stage('Confirme se pode continuar') {
+                 steps {
+                    input('Deseja mesmo continuar?')
+                 }
+                 }
+                 stage('Branch Atual') {
+                 steps {
+                       echo "está na Branch Master"
+                 }
+                 }
+                 stage('Teste Unitário') {
+                 parallel { 
+                            stage('Unit Test') {
+                           steps {
+                                echo "Running the unit test..."
+                           }
+                           }
+                            stage('Teste Integrado') {
+                              agent {
+                                    docker {
+                                            reuseNode true
+                                            image 'ubuntu'
+                                           }
+                                    }
+                              steps {
+                                echo "Running the integration test..."
+                              }
+                            }
+                 }
+                 }
+        }
+}
