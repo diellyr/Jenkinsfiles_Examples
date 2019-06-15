@@ -18,7 +18,7 @@ pipeline {
         stage('Iniciar Aplicação') {
             steps {
                 sh '''
-                    cd Enquete1.0
+                    cd Enquete
                     sudo docker-compose up
                    '''
             }
