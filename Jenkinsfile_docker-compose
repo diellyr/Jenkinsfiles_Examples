@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Descompactar Aplicação') {
+            steps {
+                sh 'tar -xvzf Enquete1.0.tar.gz'
+            }
+        }
+        stage('Iniciar Aplicação') {
+            steps {
+                sh '''
+                    cd Enquete1.0
+                    sudo docker-compose up
+                   '''
+            }
+        }
+        stage('Testar Aplicação') {
+            steps {
+                echo 'teste....'
+            }
+        }
+    }
+}
