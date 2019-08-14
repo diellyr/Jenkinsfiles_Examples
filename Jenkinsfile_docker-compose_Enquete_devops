@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    
+    stages {
+        
+        stage('Download Aplicação') {
+           steps {     
+        git url: 'https://github.com/capacitacaodevops/Enquete_Devops.git'
+            }
+        }
+        
+        stage('Descompactar Aplicação') {
+            steps {
+                sh 'tar -xvzf Enquete.tar.gz'
+            }
+        }
+        
+        stage('Iniciar Aplicação') {
+            steps {
+                sh '''
+                    cd Enquete/compose
+                    sudo nohup docker-compose up &
+                   '''
+            }
+        }
+        
+        stage('Testar Aplicação') {
+            steps {
+                echo 'teste....'
+            }
+        }
+    }
+}
