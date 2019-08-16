@@ -2,6 +2,12 @@ pipeline {
     agent any
     
     stages {
+    
+         stage('Limpeza de Arquivos') {
+           steps {     
+                 sh 'rm -Rvf *'
+            }
+        } 
         
         stage('Download Aplicação') {
            steps {     
