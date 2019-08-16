@@ -3,12 +3,7 @@ pipeline {
     
     stages {
     
-         stage('Limpeza de Arquivos') {
-           steps {     
-                 sh 'rm -Rvf *'
-            }
-        }
-        
+           
         stage('Download Aplicação') {
            steps {     
         git url: 'https://github.com/capacitacaodevops/Enquete_Devops.git'
