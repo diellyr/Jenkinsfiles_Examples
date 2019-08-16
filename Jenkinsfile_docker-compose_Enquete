@@ -11,7 +11,7 @@ pipeline {
         
         stage('Descompactar Aplicação') {
             steps {
-                sh 'tar -xvzf Enquete1.0.tar.gz'
+                sh 'tar -xvzf Enquete.tar.gz'
             }
         }
         
