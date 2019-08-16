@@ -15,6 +15,19 @@ pipeline {
             }
         }
         
+         stage('Stop e rm de containers') {
+            steps {
+                sh '''
+                      docker stop httpd
+                      docker rm httpd
+                      docker stop node
+                      docker rm node
+                      docker stop mariadb
+                      docker rm mariadb
+                   '''
+            }
+        }
+        
         stage('Iniciar Aplicação') {
             steps {
                 sh '''
