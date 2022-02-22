@@ -5,7 +5,7 @@ pipeline {
     
         
         
-        stage('Download Aplicação') {
+        stage('Baixar Aplicação') {
            steps {     
         git url: 'https://github.com/diellyr/enquete.git'
             }
